@@ -28,7 +28,7 @@ container:
 
 build: submodule
 	rm -rf $(BUILD_DIR)
-	mkdir -p $(BUILD_DIR)/src/github.com/docker
+	mkdir -p $(BUILD_DIR)/src/github.com/opencontainers
 	cp -R upstream $(BUILD_DIR)/src/github.com/opencontainers/runc
 	export GOPATH=$(BUILD_DIR) && make -C $(BUILD_DIR)/src/github.com/opencontainers/runc
 	mkdir -p $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)
