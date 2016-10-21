@@ -1,0 +1,26 @@
+name 'runc'
+org 'amylum'
+
+deps(
+  libseccomp: '2.3.1-1'
+)
+
+configure_flags(
+  prefix: '/usr'
+)
+
+cflags
+harden
+
+build do
+  gopath = tmpdir(:gopath)
+  run "mkdir -p #{gopath}/src/github.com/docker"
+  run "ln -s #{tmpdir(:build)} #{gopath}/src/github.com/docker/runc"
+  make 'GOPATH' => gopath
+  run "mkdir -p #{releasedir}/usr/bin"
+  run "cp bin/* #{releasedir}/usr/bin/"
+end
+
+test do
+  # TODO: add tests
+end

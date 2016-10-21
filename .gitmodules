@@ -1,3 +1,6 @@
 [submodule "upstream"]
 	path = upstream
 	url = git://github.com/opencontainers/runc
+[submodule "meta"]
+	path = meta
+	url = git://github.com/amylum/pkgforge-helper

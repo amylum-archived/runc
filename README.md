@@ -1,6 +1,8 @@
 runc
 ==========
 
+[![Build Status](https://img.shields.io/circleci/project/amylum/runc/master.svg)](https://circleci.com/gh/amylum/runc)
+[![GitHub release](https://img.shields.io/github/release/amylum/runc.svg)](https://github.com/amylum/runc/releases)
 [![Apache Licensed](http://img.shields.io/badge/license-apache-green.svg)](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0))
 
 Package repo for [runc](https://github.com/opencontainers/runc)
