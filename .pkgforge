@@ -17,6 +17,7 @@ build do
   gopath = tmpdir(:gopath)
   run "mkdir -p #{gopath}/src/github.com/docker"
   run "ln -s #{tmpdir(:build)} #{gopath}/src/github.com/docker/runc"
+  run 'go get', 'GOPATH' => gopath
   make 'GOPATH' => gopath
   run "mkdir -p #{releasedir}/usr/bin"
   run "cp bin/* #{releasedir}/usr/bin/"
