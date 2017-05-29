@@ -15,12 +15,13 @@ harden
 
 build do
   gopath = tmpdir(:gopath)
-  run "mkdir -p #{gopath}/src/github.com/docker"
-  run "ln -s #{tmpdir(:build)} #{gopath}/src/github.com/docker/runc"
-  run 'go get', 'GOPATH' => gopath
-  make 'GOPATH' => gopath
-  run "mkdir -p #{releasedir}/usr/bin"
-  run "cp bin/* #{releasedir}/usr/bin/"
+  srcpath = "#{gopath}/src/github.com/opencontainers/runc"
+  run "mkdir -p #{gopath}/src/github.com/opencontainers"
+  run "ln -s #{tmpdir(:build)} #{srcpath}"
+  run "cd #{srcpath} && go get -d", 'GOPATH' => gopath
+  run "cd #{srcpath} && make runc man", 'GOPATH' => gopath
+  run "mkdir -p #{releasedir}/usr/{bin,share/man/man8}"
+  run "cp runc #{releasedir}/usr/bin/"
 end
 
 test do
