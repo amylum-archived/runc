@@ -3,7 +3,7 @@ org 'amylum'
 
 deps(
   libseccomp: '2.3.2-2',
-  'linux-api-headers': '4.11-1'
+  'linux-api-headers': '4.11-2'
 )
 
 configure_flags(
@@ -19,9 +19,15 @@ build do
   run "mkdir -p #{gopath}/src/github.com/opencontainers"
   run "ln -s #{tmpdir(:build)} #{srcpath}"
   run "cd #{srcpath} && go get -d", 'GOPATH' => gopath
-  run "cd #{srcpath} && make runc man", 'GOPATH' => gopath
+  run "cd #{srcpath} && make runc man", {
+    'GOPATH' => gopath,
+    'CGO_CFLAGS' => @forge.cflags.join(' '),
+    'CGO_LDFLAGS' => @forge.cflags.join(' '),
+    'CC' => 'musl-gcc'
+  }
   run "mkdir -p #{releasedir}/usr/{bin,share/man/man8}"
   run "cp runc #{releasedir}/usr/bin/"
+  run "cp man/man8/* #{releasedir}/usr/share/man/man8/"
 end
 
 test do
