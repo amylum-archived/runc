@@ -2,7 +2,7 @@ name 'runc'
 org 'amylum'
 
 deps(
-  libseccomp: '2.3.2-2',
+  libseccomp: '2.3.2-3',
   'linux-api-headers': '4.11-2'
 )
 
