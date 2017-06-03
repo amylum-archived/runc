@@ -2,8 +2,8 @@ name 'runc'
 org 'amylum'
 
 deps(
-  libseccomp: '2.3.2-3',
-  'linux-api-headers': '4.11-2'
+  libseccomp: '2.3.2-4',
+  'linux-api-headers': '4.11-4'
 )
 
 configure_flags(
