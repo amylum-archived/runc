@@ -22,8 +22,9 @@ build do
   run "cd #{srcpath} && make runc man", {
     'GOPATH' => gopath,
     'CGO_CFLAGS' => @forge.cflags.join(' '),
-    'CGO_LDFLAGS' => @forge.cflags.join(' '),
-    'CC' => 'musl-gcc'
+    'CGO_LDFLAGS' => @forge.cflags.join(' ') + ' -lseccomp',
+    'CC' => 'musl-gcc',
+    'PKG_CONFIG' => '/bin/true'
   }
   run "mkdir -p #{releasedir}/usr/{bin,share/man/man8}"
   run "cp runc #{releasedir}/usr/bin/"
