@@ -3,12 +3,12 @@ org 'amylum'
 
 deps(
   libseccomp: {
-    version: '2.3.2-5',
-    checksum: 'ba13f9af02d11db4a45630f68311a0cfd1ad6ce713e5368ba7cffec9d37e7d91'
+    version: '2.3.2-6',
+    checksum: 'acb8ee342c58bb98e211f7ec418bce86a1d415260559116ae9a6300e6bf8f3d9'
   },
   'linux-api-headers': {
-    version: '4.12-1',
-    checksum: '25d3672456a93cc7f6743d4b2c227ad7a9456f4ec2a9f09ab7f2e9e6cb56aeaa'
+    version: '4.13-1',
+    checksum: '50b2288419fe132c061bdf3d297293011929abc1092ffaa5e523ad6549b4f5fa'
   }
 )
 
