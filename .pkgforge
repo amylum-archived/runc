@@ -3,8 +3,8 @@ org 'amylum'
 
 deps(
   libseccomp: {
-    version: '2.3.3-6',
-    checksum: '78b400bc4b40281cef6d4d31a26035dbdfade3e0b0802c719a640c897f9ed745'
+    version: '2.3.3-7',
+    checksum: '7d4152c1350a68f714b3a79413f806e30c072f91e877b6343370cbe4ff7e8774'
   },
   'linux-api-headers': {
     version: '4.20-1',
